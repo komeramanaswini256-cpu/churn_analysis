@@ -20,6 +20,8 @@ with open('onehot_encoder_geo.pkl', 'rb') as file:
 with open('scaler.pkl', 'rb') as file:
     scaler = pickle.load(file)
 
+st.title("Customer Churn Prediction")
+
 geography = st.selectbox('Geography', onehot_encoder_geo.categories_[0])
 gender = st.selectbox('Gender', label_encoder_gender.classes_)
 age = st.slider('Age', 18, 92)
@@ -66,4 +68,5 @@ st.write(f'Churn Probability: {prediction_proba:.2f}')
 if prediction_proba > 0.5:
     st.write('The customer is likely to churn.')
 else:
+
     st.write('The customer is not likely to churn.')
